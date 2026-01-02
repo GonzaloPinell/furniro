@@ -1,0 +1,124 @@
+---
+import Compare from "@/assets/icons/compare.svg";
+import Like from "@/assets/icons/like.svg";
+import Share from "@/assets/icons/share.svg";
+import grifoImage from "@/assets/products/grifo.png";
+import leviosaImage from "@/assets/products/leviosa.png";
+import lolitoImage from "@/assets/products/lolito.png";
+import muggoImage from "@/assets/products/muggo.png";
+import pingkyImage from "@/assets/products/pingky.png";
+import pottyImage from "@/assets/products/potty.png";
+import respiraImage from "@/assets/products/respira.png";
+import syltherine from "@/assets/products/syltherine.png";
+import { Image } from "astro:assets";
+
+interface Props {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  discount?: number;
+  badge?: "new" | "discount";
+}
+
+const { name, description, price, originalPrice, image, discount, badge } =
+  Astro.props;
+
+const images = {
+  syltherine: syltherine,
+  leviosa: leviosaImage,
+  lolito: lolitoImage,
+  respira: respiraImage,
+  grifo: grifoImage,
+  muggo: muggoImage,
+  pingky: pingkyImage,
+  potty: pottyImage,
+};
+
+const selectedImage = images[image as keyof typeof images];
+
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(price);
+};
+---
+
+<div class="group relative overflow-hidden bg-gray-100">
+  <!-- Product Image -->
+  <div class="relative aspect-square overflow-hidden">
+    <Image src={selectedImage} alt={name} class="h-full w-full object-cover" />
+
+    <!-- Badge -->
+    {
+      badge && (
+        <div class="absolute top-6 right-6">
+          {badge === "discount" && discount && (
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-red-500 text-sm font-semibold text-white">
+              -{discount}%
+            </span>
+          )}
+          {badge === "new" && (
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-teal-500 text-sm font-semibold text-white">
+              New
+            </span>
+          )}
+        </div>
+      )
+    }
+
+    <!-- Hover Overlay -->
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-gray-900/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+    >
+      <button
+        class="hover:text-primary border-2 border-white px-12 py-3 font-semibold text-white transition-colors hover:bg-white"
+      >
+        Add to cart
+      </button>
+
+      <div class="flex items-center gap-5 text-white">
+        <button
+          class="hover:text-primary flex items-center gap-1 font-semibold transition-colors"
+        >
+          <Share class="h-4 w-4" />
+          <span>Share</span>
+        </button>
+        <button
+          class="hover:text-primary flex items-center gap-1 font-semibold transition-colors"
+        >
+          <Compare class="h-4 w-4" />
+          <span>Compare</span>
+        </button>
+        <button
+          class="hover:text-primary flex items-center gap-1 font-semibold transition-colors"
+        >
+          <Like class="h-4 w-4" />
+          <span>Like</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Info -->
+  <div class="flex flex-col gap-2 bg-gray-100 p-4">
+    <h3 class="text-2xl font-semibold text-gray-800">{name}</h3>
+    <p class="text-gray-500">{description}</p>
+    <div class="flex items-center gap-4">
+      <span class="text-xl font-semibold text-gray-800">
+        {formatPrice(price)}
+      </span>
+      {
+        originalPrice && (
+          <span class="text-gray-400 line-through">
+            {formatPrice(originalPrice)}
+          </span>
+        )
+      }
+    </div>
+  </div>
+</div>
