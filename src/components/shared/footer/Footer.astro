@@ -2,11 +2,13 @@
 import Logo from "@/assets/brand/furniro.svg";
 ---
 
-<footer class="border-t border-gray-200 px-12 py-12">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-12">
+<footer class="border-t border-gray-200 px-4 py-8 md:px-8 md:py-12 lg:px-12">
+  <div
+    class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-12 md:gap-12"
+  >
     <!-- Brand & Address -->
     <div class="md:col-span-3">
-      <div class="flex flex-col items-start gap-12">
+      <div class="flex flex-col items-start gap-8 md:gap-12">
         <Logo class="h-8 w-auto" />
         <address class="leading-relaxed text-gray-400 not-italic">
           400 University Drive Suite 200 Coral Gables,<br />
@@ -84,7 +86,11 @@ import Logo from "@/assets/brand/furniro.svg";
   </div>
 
   <!-- Copyright -->
-  <div class="mx-auto mt-10 max-w-7xl border-t border-gray-200 pt-9">
-    <p class="text-black">2023 furino. All rights reserved</p>
+  <div
+    class="mx-auto mt-8 max-w-7xl border-t border-gray-200 pt-6 md:mt-10 md:pt-9"
+  >
+    <p class="text-sm text-black md:text-base">
+      2023 furino. All rights reserved
+    </p>
   </div>
 </footer>

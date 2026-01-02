@@ -2,15 +2,21 @@
 import CategoryCard from "./CategoryCard.astro";
 ---
 
-<section class="flex flex-col items-center gap-8 px-12 py-16">
-  <div class="flex flex-col items-center gap-2">
-    <h2 class="text-3xl font-bold text-gray-800">Browse The Range</h2>
-    <p class="text-lg text-gray-600">
+<section
+  class="flex flex-col items-center gap-6 px-4 py-12 md:gap-8 md:px-8 md:py-16 lg:px-12"
+>
+  <div class="flex flex-col items-center gap-2 text-center">
+    <h2 class="text-2xl font-bold text-gray-800 md:text-3xl">
+      Browse The Range
+    </h2>
+    <p class="text-base text-gray-600 md:text-lg">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </p>
   </div>
 
-  <div class="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+  <div
+    class="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3"
+  >
     <CategoryCard image="dining" title="Dining" href="/shop?category=dining" />
     <CategoryCard image="living" title="Living" href="/shop?category=living" />
     <CategoryCard
