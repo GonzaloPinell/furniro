@@ -1,0 +1,90 @@
+---
+import Logo from "@/assets/brand/furniro.svg";
+---
+
+<footer class="border-t border-gray-200 px-12 py-12">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-12">
+    <!-- Brand & Address -->
+    <div class="md:col-span-3">
+      <div class="flex flex-col items-start gap-12">
+        <Logo class="h-8 w-auto" />
+        <address class="leading-relaxed text-gray-400 not-italic">
+          400 University Drive Suite 200 Coral Gables,<br />
+          FL 33134 USA
+        </address>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="flex flex-col gap-12 md:col-span-2">
+      <h3 class="font-medium text-gray-400">Links</h3>
+      <nav class="flex flex-col gap-11">
+        <a
+          href="/"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >Home</a
+        >
+        <a
+          href="/shop"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >Shop</a
+        >
+        <a
+          href="/about"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >About</a
+        >
+        <a
+          href="/contact"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >Contact</a
+        >
+      </nav>
+    </div>
+
+    <!-- Help -->
+    <div class="flex flex-col gap-12 md:col-span-2">
+      <h3 class="font-medium text-gray-400">Help</h3>
+      <nav class="flex flex-col gap-11">
+        <a
+          href="/payment-options"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >Payment Options</a
+        >
+        <a
+          href="/returns"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >Returns</a
+        >
+        <a
+          href="/privacy-policies"
+          class="hover:text-primary font-medium text-black transition-colors"
+          >Privacy Policies</a
+        >
+      </nav>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="flex flex-col gap-12 md:col-span-5">
+      <h3 class="font-medium text-gray-400">Newsletter</h3>
+      <form class="flex gap-3">
+        <input
+          type="email"
+          placeholder="Enter Your Email Address"
+          class="flex-1 border-b border-black pb-1 text-sm outline-none placeholder:text-gray-400"
+        />
+        <button
+          type="submit"
+          class="hover:border-primary hover:text-primary border-b border-black pb-1 text-sm font-medium uppercase transition-colors"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="mx-auto mt-10 max-w-7xl border-t border-gray-200 pt-9">
+    <p class="text-black">2023 furino. All rights reserved</p>
+  </div>
+</footer>
