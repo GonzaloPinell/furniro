@@ -1,0 +1,33 @@
+---
+import heroImage from "@/assets/hero/hero-image.png";
+import { Image } from "astro:assets";
+---
+
+<section class="relative h-dvh w-full">
+  <Image
+    src={heroImage}
+    alt="Furniture Hero Image"
+    class="h-full w-full object-cover"
+  />
+
+  <div
+    class="bg-card absolute top-1/2 right-16 flex max-w-3xl -translate-y-1/2 flex-col gap-10 rounded-xl px-12 pt-20 pb-12"
+  >
+    <div class="flex flex-col gap-2">
+      <h2 class="text-base font-semibold tracking-[3px]">New Arrival</h2>
+      <h1 class="text-primary text-5xl leading-16 font-bold">
+        Discover Our New Collection
+      </h1>
+      <p class="text-md font-light">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+        luctus nec ullamcorper mattis.
+      </p>
+    </div>
+    <a
+      class="bg-primary w-fit px-18 py-6.25 text-base font-bold text-white"
+      href="/shop"
+    >
+      Shop Now
+    </a>
+  </div>
+</section>
