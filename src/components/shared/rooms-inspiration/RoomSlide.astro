@@ -1,0 +1,58 @@
+---
+import bedroomImage from "@/assets/rooms/bedroom.png";
+import livingImage from "@/assets/rooms/living.png";
+import { Image } from "astro:assets";
+
+interface Props {
+  id: string;
+  number: string;
+  category: string;
+  title: string;
+  image: string;
+}
+
+const { number, category, title, image } = Astro.props;
+
+const images = {
+  bedroom: bedroomImage,
+  living: livingImage,
+};
+
+const selectedImage = images[image as keyof typeof images];
+---
+
+<div class="relative h-[582px] w-[404px] shrink-0">
+  <Image src={selectedImage} alt={title} class="h-full w-full object-cover" />
+
+  <!-- Info Card -->
+  <div
+    class="absolute bottom-6 left-6 flex items-end gap-6 bg-white/90 px-8 py-6 backdrop-blur-sm"
+  >
+    <div class="flex flex-col gap-1">
+      <p class="text-sm text-gray-500">
+        {number}
+        <span class="mx-2">—</span>
+        {category}
+      </p>
+      <h3 class="text-3xl font-semibold text-gray-800">{title}</h3>
+    </div>
+    <button
+      class="bg-primary flex h-12 w-12 shrink-0 items-center justify-center text-white transition-all hover:brightness-110"
+      aria-label="View room details"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="h-6 w-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+      </svg>
+    </button>
+  </div>
+</div>

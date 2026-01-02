@@ -1,0 +1,57 @@
+---
+import RoomSlide from "./RoomSlide.astro";
+
+interface Room {
+  id: string;
+  number: string;
+  category: string;
+  title: string;
+  image: string;
+}
+
+interface Props {
+  rooms: Room[];
+}
+
+const { rooms } = Astro.props;
+---
+
+<div class="relative flex-1">
+  <!-- Carousel Container -->
+  <div id="room-carousel" class="flex gap-6 overflow-x-hidden scroll-smooth">
+    {rooms.map((room) => <RoomSlide {...room} />)}
+  </div>
+
+  <!-- Navigation Arrow (Right) -->
+  <button
+    id="carousel-next"
+    class="hover:bg-primary absolute top-1/2 right-6 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-800 shadow-lg transition-all hover:text-white"
+    aria-label="Next slide"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="2.5"
+      stroke="currentColor"
+      class="h-5 w-5"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+    </svg>
+  </button>
+
+  <!-- Page Indicators -->
+  <div class="mt-8 flex gap-4">
+    {
+      rooms.map((_, index) => (
+        <button
+          class="carousel-indicator h-3 w-3 rounded-full transition-all hover:scale-110"
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))
+    }
+  </div>
+</div>
