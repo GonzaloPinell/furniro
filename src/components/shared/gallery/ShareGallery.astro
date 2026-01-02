@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import gallery1 from "./gallery-1.png";
+import gallery2 from "./gallery-2.png";
+import gallery3 from "./gallery-3.png";
+import gallery4 from "./gallery-4.png";
+import gallery5 from "./gallery-5.png";
+import gallery6 from "./gallery-6.png";
+import gallery7 from "./gallery-7.png";
+---
+
+<section class="px-4 py-16">
+  <!-- Header -->
+  <div class="mb-8 flex flex-col items-center gap-2 text-center">
+    <p class="text-lg font-medium text-gray-600">Share your setup with</p>
+    <h2 class="text-4xl font-bold text-gray-800">#FuniroFurniture</h2>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div class="grid grid-cols-12 gap-4">
+    <!-- Column 1 - Left small images -->
+    <div class="col-span-2 flex flex-col gap-4">
+      <div class="aspect-square">
+        <Image
+          src={gallery4}
+          alt="Gallery image 4"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <div class="aspect-3/4">
+        <Image
+          src={gallery7}
+          alt="Gallery image 7"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Column 2 - Tall images -->
+    <div class="col-span-3 flex flex-col gap-4">
+      <div class="aspect-3/4">
+        <Image
+          src={gallery1}
+          alt="Gallery image 1"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <div class="aspect-square">
+        <Image
+          src={gallery5}
+          alt="Gallery image 5"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Column 3 - Center tall image -->
+    <div class="col-span-3">
+      <div class="aspect-3/5">
+        <Image
+          src={gallery2}
+          alt="Gallery image 2"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Column 4 - Right images -->
+    <div class="col-span-2 flex flex-col gap-4">
+      <div class="aspect-4/5">
+        <Image
+          src={gallery3}
+          alt="Gallery image 3"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <div class="aspect-square">
+        <Image
+          src={gallery6}
+          alt="Gallery image 6"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Column 5 - Far right -->
+    <div class="col-span-2">
+      <div class="aspect-2/3">
+        <Image
+          src={gallery4}
+          alt="Gallery image 4"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>
