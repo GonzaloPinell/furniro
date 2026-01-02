@@ -1,0 +1,33 @@
+---
+import bedroomImage from "@/assets/browse/bedroom.png";
+import diningImage from "@/assets/browse/dining.png";
+import livingImage from "@/assets/browse/living.png";
+import { Image } from "astro:assets";
+
+interface Props {
+  image: "dining" | "living" | "bedroom";
+  title: string;
+  href: string;
+}
+
+const { image, title, href } = Astro.props;
+
+const images = {
+  dining: diningImage,
+  living: livingImage,
+  bedroom: bedroomImage,
+};
+
+const selectedImage = images[image];
+---
+
+<a href={href} class="group flex flex-col items-center gap-6">
+  <div class="overflow-hidden rounded-lg">
+    <Image
+      src={selectedImage}
+      alt={`${title} category`}
+      class="h-120 w-full object-cover transition-transform duration-300 group-hover:scale-110"
+    />
+  </div>
+  <h3 class="text-2xl font-semibold text-gray-800">{title}</h3>
+</a>

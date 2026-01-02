@@ -1,0 +1,22 @@
+---
+import CategoryCard from "./CategoryCard.astro";
+---
+
+<section class="flex flex-col items-center gap-8 px-12 py-16">
+  <div class="flex flex-col items-center gap-2">
+    <h2 class="text-3xl font-bold text-gray-800">Browse The Range</h2>
+    <p class="text-lg text-gray-600">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+  </div>
+
+  <div class="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+    <CategoryCard image="dining" title="Dining" href="/shop?category=dining" />
+    <CategoryCard image="living" title="Living" href="/shop?category=living" />
+    <CategoryCard
+      image="bedroom"
+      title="Bedroom"
+      href="/shop?category=bedroom"
+    />
+  </div>
+</section>
